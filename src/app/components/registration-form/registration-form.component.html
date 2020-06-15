@@ -1,0 +1,59 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h5>Sign Up</h5>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="regGroup" (submit)="submit($event)">
+      <mat-form-field>
+        <i class="fa fa-at" matPrefix></i>
+        <!-- <mat-label>Email</mat-label> -->
+        <input placeholder="Email" type="email" matInput formControlName="email" />
+      </mat-form-field>
+      <mat-form-field>
+        <i class="fa fa-user" matPrefix></i>
+        <!-- <mat-label>First Name</mat-label> -->
+        <input placeholder="First Name" type="text" matInput formControlName="firstName" />
+      </mat-form-field>
+      <mat-form-field>
+        <i class="fa fa-user" matPrefix></i>
+        <!-- <mat-label>Last Name</mat-label> -->
+        <input placeholder="Last Name" type="text" matInput formControlName="lastName" />
+      </mat-form-field>
+      <mat-form-field>
+        <i class="fa fa-key" matPrefix></i>
+        <!-- <mat-label>Password</mat-label> -->
+        <input placeholder="Password" type="password" matInput formControlName="password" />
+      </mat-form-field>
+      <mat-form-field *ngIf="referrer">
+        <i class="fa fa-user-plus" matPrefix></i>
+        <input
+          placeholder="Referred By"
+          type="text"
+          matInput
+          [value]="referrer"
+          [(ngModel)]="referrer"
+          [ngModelOptions]="{ standalone: true }"
+          disabled
+        />
+      </mat-form-field>
+      <mat-form-field *ngIf="!referrer">
+        <i class="fa fa-money-bill" matPrefix></i>
+        <mat-select
+          [value]="selectedAmountType"
+          [(ngModel)]="selectedAmountType"
+          [ngModelOptions]="{'standalone': true}">
+          <mat-option *ngFor="let amount of amountType" [value]="amount.value">
+            {{ amount.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-raised-button color="accent">Register</button>
+      <div class="spinner-flex" *ngIf="isLoading">
+        <mat-spinner diameter="30"></mat-spinner>
+      </div>
+      <span *ngIf="isLoading">{{ progressText }}</span>
+    </form>
+  </mat-card-content>
+</mat-card>

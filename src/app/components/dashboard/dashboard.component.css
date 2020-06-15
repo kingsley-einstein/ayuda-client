@@ -1,0 +1,108 @@
+.card-flex {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 50px auto;
+  font-size: 15px;
+  width: 100%;
+  text-align: center;
+  overflow: scroll;
+}
+
+.card-flex mat-card {
+  min-width: 300px;
+  min-height: 80px;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+}
+
+.card-flex mat-card i {
+  color: gainsboro;
+}
+
+i.big {
+  font-size: 50px;
+}
+
+mat-card .inner-card-flex {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.separator {
+  flex: 1 auto;
+}
+
+mat-card .inner-card-column-flex {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+mat-card.orange {
+  background-color: orange;
+}
+
+mat-card.blue {
+  background-color: skyblue;
+}
+
+mat-card.red {
+  background-color: red;
+}
+
+.below-cards-flex {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 10rem auto;
+  overflow: scroll;
+  width: 100%;
+  text-align: center;
+}
+
+.below-cards-flex mat-card {
+  min-width: 300px;
+  max-height: 500px;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+  text-align: center;
+}
+
+@media screen and (orientation: portrait) {
+  .card-flex {
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+  }
+
+  .card-flex mat-card {
+    min-width: 90%;
+    min-height: 80px;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
+  .below-cards-flex {
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+  }
+}
+
+[mat-table] {
+  width: 100%;
+}
+
+[mat-table] td {
+  padding: 12px;
+}
+
+[mat-table] th {
+  margin: 8px;
+}
+
+.main-card {
+  text-align: center;
+}

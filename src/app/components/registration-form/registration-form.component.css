@@ -1,0 +1,39 @@
+form {
+  text-align: center;
+}
+
+mat-spinner {
+  text-align: center;
+}
+
+.spinner-flex {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 12px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-form-field input {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+mat-form-field i {
+  font-size: 13px;
+}
+
+mat-card {
+  max-width: inherit;
+}
+
+@media screen and (orientation: landscape) {
+  mat-card {
+    max-width: 350px;
+  }
+}

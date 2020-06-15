@@ -1,0 +1,63 @@
+<div class="hide-on-widescreen">
+  <mat-toolbar>
+    <button mat-button (click)="toggleSidebar()">
+      <i class="fa fa-bars"></i>
+    </button>
+  </mat-toolbar>
+  <button
+    mat-raised-button
+    mat-mini-fab
+    color="primary"
+    class="floating-btn">
+    <i class="fa fa-user"></i>
+    <i class="fa fa-caret-up"></i>
+  </button>
+</div>
+<div class="flex">
+  <app-sidebar
+    [sidebarVisibleOnMobile]="sidebarVisible"
+    (hidden)="hidden($event)">
+  </app-sidebar>
+  <div class="separator"></div>
+  <button mat-button class="round-btn" [matMenuTriggerFor]="menu">
+    <i class="fa fa-user"></i>
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <i class="fa fa-copy"></i>
+      <span>Copy Referral Link</span>
+    </button>
+    <button mat-menu-item>
+      <i class="fa fa-copy"></i>
+      <span>Copy Referral Code</span>
+    </button>
+    <button mat-menu-item [matMenuTriggerFor]="menu2">
+      <i class="fab fa-telegram"></i>
+      <span>Telegram Links</span>
+    </button>
+    <button mat-menu-item>
+      <i class="fa fa-credit-card"></i>
+      <span>Request Payout</span>
+    </button>
+    <button mat-menu-item>
+      <i class="fa fa-sign-out-alt"></i>
+      <span>Sign Out</span>
+    </button>
+    <mat-menu #menu2="matMenu">
+      <button mat-menu-item>
+        <i class="fab fa-telegram"></i>
+        <span>Link 1</span>
+      </button>
+      <button mat-menu-item>
+        <i class="fab fa-telegram"></i>
+        <span>Link 2</span>
+      </button>
+      <button mat-menu-item>
+        <i class="fab fa-telegram"></i>
+        <span>Link 3</span>
+      </button>
+    </mat-menu>
+  </mat-menu>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,40 @@
+@media screen and (orientation: portrait) {
+  .hide-on-mobile {
+    display: none;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .hide-on-widescreen {
+    display: none;
+  }
+}
+
+.active {
+  background-color: greenyellow;
+}
+
+a[mat-button] {
+  width: 100%;
+}
+
+a[mat-button] i {
+  padding: 8px;
+}
+
+.sidebar-content {
+  margin-top: 4em;
+}
+/* i.margined {
+  margin-left: 8px;
+} */
+
+p-sidebar a {
+  text-align: left;
+  color: white;
+}
+
+/* .purple {
+  background-color: purple;
+  color: s;
+} */

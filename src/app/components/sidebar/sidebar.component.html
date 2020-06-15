@@ -1,0 +1,66 @@
+<div class="hide-on-mobile">
+  <p-sidebar
+    [style]="{backgroundColor: 'slateblue' }"
+    [(visible)]="sidebarVisibleOnWidescreen"
+    styleClass="ui-sidebar-left ui-sidebar-sm"
+    [modal]="false"
+    [dismissible]="false"
+    [showCloseIcon]="false">
+    <div class="sidebar-content">
+      <a mat-button routerLink="dashboard" routerLinkActive="active">
+        <i class="fa fa-cogs"></i>
+        <span>Dashboard</span>
+      </a>
+      <a mat-button>
+        <i class="fa fa-user-edit"></i>
+        <span>Change Password</span>
+      </a>
+      <a mat-button>
+        <i class="fa fa-user-tie"></i>
+        <span>My Profile</span>
+      </a>
+      <mat-divider></mat-divider>
+      <a mat-button>
+        <i class="fa fa-sign-out-alt"></i>
+        <span>Sign Out</span>
+      </a>
+      <!-- <mat-menu #menu="matMenu" xPosition="after">
+        <a mat-menu-item>
+          <i class="fab fa-telegram"></i>
+          <span>Link 1</span>
+        </a>
+      </mat-menu> -->
+    </div>
+  </p-sidebar>
+</div>
+
+<div class="hide-on-widescreen">
+  <!-- <mat-toolbar color="primary">
+    <button mat-button (click)="toggleSidebarOnMobile()">
+      <i class="fa fa-bars"></i>
+    </button>
+  </mat-toolbar> -->
+  <p-sidebar
+    [style]="{backgroundColor: 'slateblue'}"
+    [(visible)]="sidebarVisibleOnMobile"
+    styleClass="ui-sidebar-left ui-sidebar-sm"
+    [showCloseIcon]="true"
+    (onHide)="onHide()">
+    <div class="sidebar-content">
+      <a mat-button routerLink="dashboard" routerLinkActive="active">
+        <i class="fa fa-cogs"></i>
+        <span>Dashboard</span>
+      </a>
+      <a mat-button>
+        <i class="fa fa-user-edit"></i>
+        <span>Change Password</span>
+      </a>
+      <a mat-button>
+        <i class="fa fa-user-tie"></i>
+        <span>My Profile</span>
+      </a>
+      <mat-divider></mat-divider>
+    </div>
+  </p-sidebar>
+</div>
+

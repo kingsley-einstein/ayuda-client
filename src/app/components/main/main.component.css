@@ -1,0 +1,19 @@
+.contain {
+  width: 100vw;
+  height: 100vh;
+  overflow: scroll;
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+}
+
+.router {
+  padding-bottom: 2.5rem;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+}

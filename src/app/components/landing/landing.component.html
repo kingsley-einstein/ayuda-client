@@ -1,0 +1,25 @@
+<p-toolbar>
+  <div class="ui-toolbar-group-right hide-on-mobile">
+    <a mat-button routerLink="/home">Home</a>
+    <a mat-button routerLink="/home">Login</a>
+    <a mat-raised-button routerLink="/registration" color="primary">Sign Up</a>
+  </div>
+  <div class="ui-toolbar-group-left hide-on-widescreen">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <i class="fa fa-ellipsis-v"></i>
+    </button>
+    <mat-menu #menu="matMenu">
+      <a mat-menu-item routerLink="/home">
+        <i class="fa fa-home"></i>
+        <span>Home</span>
+      </a>
+      <a mat-menu-item routerLink="/registration">
+        <i class="fa fa-user-plus"></i>
+        <span>Sign Up</span>
+      </a>
+    </mat-menu>
+  </div>
+</p-toolbar>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

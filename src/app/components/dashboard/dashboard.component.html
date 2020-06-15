@@ -1,0 +1,89 @@
+<mat-card class="main-card">
+  <div class="card-flex">
+    <mat-card class="red">
+      <mat-card-header>
+        <mat-progress-bar mode="determinate" value="90"></mat-progress-bar>
+      </mat-card-header>
+      <div class="inner-card-flex">
+        <div><i class="fa fa-users big"></i></div>
+        <div class="separator"></div>
+        <div class="inner-card-column-flex">
+          <div>
+            <h5>5</h5>
+          </div>
+          <div>Referrals</div>
+        </div>
+      </div>
+    </mat-card>
+    <mat-card class="orange">
+      <mat-card-header>
+        <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+      </mat-card-header>
+      <div class="inner-card-flex">
+        <div><i class="fa fa-calendar big"></i></div>
+        <div class="separator"></div>
+        <div class="inner-card-column-flex">
+          <div>
+            <h5>14</h5>
+          </div>
+          <div>Days left for withdrawal</div>
+        </div>
+      </div>
+    </mat-card>
+    <mat-card class="blue">
+      <mat-card-header>
+        <mat-progress-bar mode="determinate" value="55"></mat-progress-bar>
+      </mat-card-header>
+      <div class="inner-card-flex">
+        <div><i class="fa fa-dollar-sign big"></i></div>
+        <div class="separator"></div>
+        <div class="inner-card-column-flex">
+          <div>
+            <h5>500</h5>
+          </div>
+          <div>Amount Type</div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+  <div class="below-cards-flex">
+    <mat-card>
+      <mat-card-header>
+        <h5>My Referrals</h5>
+      </mat-card-header>
+      <table mat-table [dataSource]="tableData" class="mat-elevation-z8">
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let referral">
+            {{ referral.name }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>Referral Code</th>
+          <td mat-cell *matCellDef="let referral">
+            {{ referral.id }}
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayColumns"></tr>
+      </table>
+    </mat-card>
+    <mat-card>
+      <canvas
+        baseChart
+        [datasets]="radarChartDate"
+        [labels]="radarChartLabels"
+        [chartType]="radarChartType"
+        ></canvas>
+    </mat-card>
+    <mat-card>
+      <form>
+        <mat-form-field>
+          <mat-label>Referral Code</mat-label>
+          <input matInput value="9000s99s0s" />
+        </mat-form-field>
+      </form>
+    </mat-card>
+  </div>
+
+</mat-card>

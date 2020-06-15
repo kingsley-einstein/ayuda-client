@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: 'Roboto';
+  src: url("/assets/font/Roboto/Roboto-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url("/assets/font/Raleway/Raleway-Light.ttf") format("truetype");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: ghostwhite;
+  font-family: 'Roboto', sans-serif;
+  overflow: scroll;
+}
+
+a {
+  font-family: 'Raleway', sans-serif;
+}
+
+a[mat-raised-button], a[mat-button], a[mat-menu-item] {
+  font-family: 'Raleway', sans-serif;
+}
+
+.contain {
+  width: 100vw;
+  overflow: scroll;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.bg-1 {
+  background-image: url("/assets/img/books-business-computer-connection-459654.jpg");
+  background-size: cover;
+  background-position: 50% 50%;
+  height: 30em;
+  padding-top: 6em;
+}
+
+.bg-2 {
+  background-image: url("/assets/img/photo-of-people-doing-handshakes-3183197.jpg");
+  background-size: cover;
+  background-position: 50% 50%;
+  height: 30em;
+  padding-top: 6em;
+}
+
+[mat-menu-item] i {
+  padding: 8px;
+}

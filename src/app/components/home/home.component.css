@@ -1,0 +1,57 @@
+.flex-hero {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-hero .center-div {
+  text-align: center;
+}
+
+.bolden-whiten {
+  font-weight: bolder;
+  color: ghostwhite;
+  font-size: 30px;
+}
+
+.little-text {
+  font-weight: normal;
+  color: antiquewhite;
+  font-size: 20px;
+}
+
+.card-flex {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: ghostwhite;
+  padding: 12px;
+  overflow: scroll;
+}
+
+.card-flex p-card {
+  margin-left: 1em;
+  margin-right: 1em;
+  width: 300px;
+  text-align: center;
+}
+
+.card-flex p-card img {
+  width: 100px;
+  height: 100px;
+}
+
+@media screen and (orientation: portrait) {
+  .card-flex {
+    flex-flow: column wrap;
+  }
+
+  .card-flex p-card {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0.3em;
+    margin-right: 0.3em;
+  }
+}
