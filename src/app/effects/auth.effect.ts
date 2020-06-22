@@ -15,6 +15,6 @@ export class AuthEffects {
     ofType<GetUser>(AuthActions.GetAuthenticatedUser),
     switchMap(() => this._service.getLoggedUser()),
     switchMap((http) => of(new GetUserSuccess(http.response))),
-    catchError((err) => of(new GetUserError(err.error.response)))
+    catchError((err) => of(new GetUserError(err.error.response || err.statusText)))
   );
 }

@@ -3,6 +3,7 @@ import { CardModule } from "primeng/card";
 import { SidebarModule } from "primeng/sidebar";
 import { ToolbarModule } from "primeng/toolbar";
 import { ToastModule } from "primeng/toast";
+// import { DialogModule } from "primeng/dialog";
 // import { CardModule } from "primeng/card";
 
 @NgModule({

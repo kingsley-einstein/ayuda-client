@@ -1,0 +1,33 @@
+<div class="dialog-top-flex">
+  <h5 mat-dialog-title>
+    Request Payout
+  </h5>
+  <div class="separator"></div>
+  <button mat-button mat-dialog-close>
+    <i class="fa fa-times"></i>
+  </button>
+</div>
+<mat-dialog-content>
+  <form>
+    <mat-form-field>
+      <i class="fa fa-user" matPrefix></i>
+      <input type="text" matInput placeholder="Name" />
+    </mat-form-field>
+    <mat-form-field>
+      <i class="fa fa-credit-card" matPrefix></i>
+      <input type="text" matInput placeholder="Account Number" />
+    </mat-form-field>
+    <mat-form-field>
+      <i class="fa fa-university" matPrefix></i>
+      <mat-select
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="selectedBank"
+      >
+        <mat-option *ngFor="let bank of supportedBanks" [value]="bank.value">
+          {{ bank.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="accent">Request</button>
+  </form>
+</mat-dialog-content>

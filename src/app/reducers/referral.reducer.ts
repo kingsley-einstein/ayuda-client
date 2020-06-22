@@ -27,6 +27,18 @@ export default (state: ReferralState = initialReferralState, action: ReferralAct
         error: action.error
       };
     }
+    case ReferralActions.CountReferralsSuccess: {
+      return {
+        ...state,
+        referralCount: action.payload
+      };
+    }
+    case ReferralActions.CountReferralsError: {
+      return {
+        ...state,
+        error: action.error
+      };
+    }
     default:
       return state;
   }

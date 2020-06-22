@@ -16,7 +16,9 @@ import {
   FooterComponent,
   SidebarComponent,
   DashboardComponent,
-  UserAreaComponent
+  UserAreaComponent,
+  MobileBottomSheetComponent,
+  PayoutFormComponent
 } from "./components";
 
 import { Interceptor } from "./config";
@@ -52,7 +54,9 @@ import { environment } from "../environments/environment";
     FooterComponent,
     SidebarComponent,
     DashboardComponent,
-    UserAreaComponent
+    UserAreaComponent,
+    MobileBottomSheetComponent,
+    PayoutFormComponent
   ],
   imports: [
     BrowserModule,
@@ -72,6 +76,8 @@ import { environment } from "../environments/environment";
     ReferralService,
     PaymentService,
     MessageService,
+    MobileBottomSheetComponent,
+    PayoutFormComponent,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: Interceptor,

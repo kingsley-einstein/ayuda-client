@@ -7,7 +7,27 @@
 
 @font-face {
   font-family: 'Raleway';
-  src: url("/assets/font/Raleway/Raleway-Light.ttf") format("truetype");
+  src: url("/assets/font/Raleway/Raleway-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Special Raleway';
+  src: url("/assets/font/Raleway/Raleway-Thin.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Special Roboto';
+  src: url("/assets/font/Roboto/Roboto-Thin.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Bold Roboto';
+  src: url("/assets/font/Roboto/Roboto-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Bold Raleway';
+  src: url("/assets/font/Raleway/Raleway-Bold.ttf") format("truetype");
 }
 
 body {
@@ -22,7 +42,7 @@ a {
   font-family: 'Raleway', sans-serif;
 }
 
-a[mat-raised-button], a[mat-button], a[mat-menu-item] {
+a[mat-raised-button], a[mat-button], a[mat-menu-item], a[mat-list-item] {
   font-family: 'Raleway', sans-serif;
 }
 
@@ -51,6 +71,18 @@ a[mat-raised-button], a[mat-button], a[mat-menu-item] {
   padding-top: 6em;
 }
 
-[mat-menu-item] i {
+[mat-menu-item] i, [mat-list-item] i {
   padding: 8px;
+}
+
+mat-select, [matInput] {
+  font-family: 'Special Raleway', sans-serif;
+}
+
+table[mat-table] {
+  font-family: 'Bold Roboto', sans-serif;
+}
+
+table[mat-table] th {
+  font-family: 'Bold Raleway', sans-serif;
 }

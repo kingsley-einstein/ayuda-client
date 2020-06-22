@@ -36,24 +36,43 @@ mat-card .inner-card-flex {
   flex: 1 auto;
 }
 
+mat-card.fonted {
+  font-family: 'Special Roboto', sans-serif;
+}
+
 mat-card .inner-card-column-flex {
   display: flex;
   flex-flow: column wrap;
 }
 
-mat-card.orange {
+/* mat-card.orange {
   background-color: orange;
+  font-family: 'Special Roboto', sans-serif;
 }
 
 mat-card.blue {
   background-color: skyblue;
+  font-family: 'Special Roboto', sans-serif;
 }
 
 mat-card.red {
   background-color: red;
+  font-family: 'Special Roboto', sans-serif;
+} */
+
+.down {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  margin-top: 12em;
 }
 
-.below-cards-flex {
+.down-card {
+  width: 70%;
+}
+
+/* .below-cards-flex {
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-end;
@@ -70,7 +89,7 @@ mat-card.red {
   margin-left: 1.5em;
   margin-right: 1.5em;
   text-align: center;
-}
+} */
 
 @media screen and (orientation: portrait) {
   .card-flex {
@@ -85,10 +104,22 @@ mat-card.red {
     margin-bottom: 0.5em;
   }
 
-  .below-cards-flex {
+  .down-card {
+    width: 100%;
+  }
+
+  .down {
+    margin-top: 2em;
+  }
+
+  .main-card {
+    min-height: 100vh;
+  }
+
+  /* .below-cards-flex {
     flex-flow: column nowrap;
     justify-content: flex-start;
-  }
+  } */
 }
 
 [mat-table] {
@@ -100,7 +131,8 @@ mat-card.red {
 }
 
 [mat-table] th {
-  margin: 8px;
+  padding: 12px;
+  text-align: center;
 }
 
 .main-card {

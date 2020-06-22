@@ -1,3 +1,12 @@
+<!-- <p-dialog
+  [(visible)]="payoutDialogVisible"
+  (onHide)="onPayoutDialogHide()"
+  [dismissableMask]="true"
+  [modal]="true"
+  header="Request Payout"
+>
+  <app-payout></app-payout>
+</p-dialog> -->
 <div class="hide-on-widescreen">
   <mat-toolbar>
     <button mat-button (click)="toggleSidebar()">
@@ -8,7 +17,9 @@
     mat-raised-button
     mat-mini-fab
     color="primary"
-    class="floating-btn">
+    class="floating-btn"
+    (click)="openBottomSheet()"
+  >
     <i class="fa fa-user"></i>
     <i class="fa fa-caret-up"></i>
   </button>
@@ -36,7 +47,7 @@
       <i class="fab fa-telegram"></i>
       <span>Telegram Links</span>
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item (click)="showPayoutDialog()">
       <i class="fa fa-credit-card"></i>
       <span>Request Payout</span>
     </button>

@@ -1,0 +1,18 @@
+form {
+  text-align: center;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.dialog-top-flex {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.separator {
+  flex: 1 auto;
+}

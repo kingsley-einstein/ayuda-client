@@ -1,0 +1,28 @@
+<mat-nav-list>
+  <a mat-list-item>
+    <i class="fa fa-copy"></i>
+    <span>Copy Referral Link</span>
+  </a>
+  <a mat-list-item>
+    <i class="fa fa-copy"></i>
+    <span>Copy Referral Code</span>
+  </a>
+  <a mat-list-item [matMenuTriggerFor]="menu">
+    <i class="fab fa-telegram"></i>
+    <span>Telegram Links</span>
+  </a>
+  <a mat-list-item (click)="showPayoutDialog()">
+    <i class="fa fa-credit-card"></i>
+    <span>Request Payout</span>
+  </a>
+  <mat-menu #menu="matMenu">
+    <a mat-menu-item>
+      <i class="fab fa-telegram"></i>
+      <span>Link 1</span>
+    </a>
+    <a mat-menu-item>
+      <i class="fab fa-telegram"></i>
+      <span>Link 2</span>
+    </a>
+  </mat-menu>
+</mat-nav-list>
