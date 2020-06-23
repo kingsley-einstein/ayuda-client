@@ -6,8 +6,10 @@ import {
   HomeComponent,
   RegistrationComponent,
   DashboardComponent,
-  UserAreaComponent
+  UserAreaComponent,
+  LoginComponent
 } from "../components";
+import { AuthGuard, PaymentGuard } from "../config";
 
 const routes: Routes = [
   { path: "", component: MainComponent, children: [
@@ -15,13 +17,20 @@ const routes: Routes = [
       { path: "", component: HomeComponent },
       { path: "registration", component: RegistrationComponent },
       { path: "registration/:referralCode", component: RegistrationComponent },
-      { path: "home", redirectTo: "", pathMatch: "full" }
+      { path: "home", redirectTo: "", pathMatch: "full" },
+      { path: "login", component: LoginComponent }
     ] },
     { path: "landing", redirectTo: "", pathMatch: "full" },
     { path: "user-area", component: UserAreaComponent, children: [
       { path: "dashboard", component: DashboardComponent },
       { path: "", redirectTo: "dashboard", pathMatch: "full" }
-    ] }
+    ]
+    /**
+     * , canActivate: [
+     * AuthGuard, PaymentGuard
+     * ]
+     */
+  }
   ] },
   { path: "main", redirectTo: "", pathMatch: "full" }
 ];

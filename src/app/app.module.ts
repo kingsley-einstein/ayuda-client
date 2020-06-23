@@ -18,10 +18,11 @@ import {
   DashboardComponent,
   UserAreaComponent,
   MobileBottomSheetComponent,
-  PayoutFormComponent
+  PayoutFormComponent,
+  LoginComponent
 } from "./components";
 
-import { Interceptor } from "./config";
+import { Interceptor, AuthGuard, PaymentGuard, PaymentGuardToolClass } from "./config";
 
 import { RoutingModule, MdModule, PrimeModule, FormModule } from "./modules";
 
@@ -56,7 +57,8 @@ import { environment } from "../environments/environment";
     DashboardComponent,
     UserAreaComponent,
     MobileBottomSheetComponent,
-    PayoutFormComponent
+    PayoutFormComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -78,6 +80,9 @@ import { environment } from "../environments/environment";
     MessageService,
     MobileBottomSheetComponent,
     PayoutFormComponent,
+    AuthGuard,
+    PaymentGuard,
+    PaymentGuardToolClass,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: Interceptor,

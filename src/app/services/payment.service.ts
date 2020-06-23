@@ -13,6 +13,10 @@ export class PaymentService {
     return this.http.post<ResponseModel>(ROOT + Config.CREATE_PAYMENT, {});
   }
 
+  findPayment() {
+    return this.http.get<ResponseModel>(ROOT + Config.FIND_PAYMENT);
+  }
+
   initializePayment(body: any) {
     return this.http.post<ResponseModel>(ROOT + Config.INITIALIZE_PAYMENT, body);
   }

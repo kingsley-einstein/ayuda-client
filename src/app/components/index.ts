@@ -11,3 +11,4 @@ export * from "./dashboard/dashboard.component";
 export * from "./user-area/user-area.component";
 export * from "./mobile-bottom-sheet/mobile-bottom-sheet.component";
 export * from "./payout-form/payout-form.component";
+export * from "./login/login.component";
