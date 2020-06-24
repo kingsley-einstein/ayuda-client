@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem("_id", id);
     },
     (err) => {
+      this.isLoading = false;
       this._message.add({
         severity: "error",
         summary: "Could not login",
@@ -49,6 +50,7 @@ export class LoginComponent implements OnInit {
       });
     },
     () => {
+      this.isLoading = false;
       this._router.navigateByUrl("/user-area");
     });
   }

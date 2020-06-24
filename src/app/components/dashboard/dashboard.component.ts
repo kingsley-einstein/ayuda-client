@@ -13,6 +13,7 @@ import { AuthService } from "../../services";
 export class DashboardComponent implements OnInit {
   tableData: { name: string; id: string; }[] = [];
   displayColumns = ["name", "id"];
+  tableDataPage = 0;
 
   // radarChartLabels = ["Q1", "Q2", "Q3"];
   // radarChartData = [{
@@ -35,6 +36,7 @@ export class DashboardComponent implements OnInit {
     this.referralState.subscribe((state) => {
       // console.log(state);
       if (state.referrals.length > 0) {
+        this.tableData = [];
         state.referrals.forEach((referral) => {
           this._authService.getUserById(referral.owner).subscribe((res) => {
             const auth = res.response;
@@ -52,10 +54,15 @@ export class DashboardComponent implements OnInit {
     // this.referralCounts.subscribe((state) => {
     //   console.log(state);
     // });
-    this._store.dispatch(new CountReferrals("ppppooo"));
+    this._store.dispatch(new CountReferrals(localStorage.getItem("_id")));
   }
 
   displayReferrals() {
-    this._store.dispatch(new GetReferrals(0));
+    this._store.dispatch(new GetReferrals(this.tableDataPage));
+  }
+
+  onPageChange($event: any) {
+    this.tableDataPage = $event.pageIndex;
+    this.displayReferrals();
   }
 }

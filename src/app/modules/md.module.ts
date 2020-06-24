@@ -14,6 +14,7 @@ import { MatTableModule } from "@angular/material/table";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
 import { MatListModule } from "@angular/material/list";
 import { MatDialogModule } from "@angular/material/dialog";
+import { MatPaginatorModule } from "@angular/material/paginator";
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import { MatDialogModule } from "@angular/material/dialog";
     MatTableModule,
     MatProgressBarModule,
     MatListModule,
-    MatDialogModule
+    MatDialogModule,
+    MatPaginatorModule
   ],
   exports: [
     MatButtonModule,
@@ -48,7 +50,8 @@ import { MatDialogModule } from "@angular/material/dialog";
     MatTableModule,
     MatProgressBarModule,
     MatListModule,
-    MatDialogModule
+    MatDialogModule,
+    MatPaginatorModule
   ]
 })
 export class MdModule {}
