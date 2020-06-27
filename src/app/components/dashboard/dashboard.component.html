@@ -38,8 +38,8 @@
         <div><i class="fa fa-dollar-sign big"></i></div>
         <div class="separator"></div>
         <div class="inner-card-column-flex">
-          <div>
-            <h5>500</h5>
+          <div *ngIf="paymentState | async as payment">
+            <h5>{{ payment.payment.amount || payment.error }}</h5>
           </div>
           <div>Amount Type</div>
         </div>

@@ -2,8 +2,10 @@ import { Component, OnInit } from "@angular/core";
 import { Store, select } from "@ngrx/store";
 import { AppState } from "../../states/app.state";
 import { selectReferral } from "../../selectors/referral.selector";
+import { selectPayment } from "../../selectors/payment.selector";
 import { CountReferrals, GetReferrals } from "../../actions/referral.action";
 import { AuthService } from "../../services";
+import { GetPayment } from "../../actions/payment.action";
 
 @Component({
   selector: "app-dashboard",
@@ -24,12 +26,14 @@ export class DashboardComponent implements OnInit {
   constructor(private _store: Store<AppState>, private _authService: AuthService) {}
 
   referralState = this._store.pipe(select(selectReferral));
+  paymentState = this._store.pipe(select(selectPayment));
 
   ngOnInit() {
     console.log("[Dashboard]");
     this.watchReferralState();
     this.countReferrals();
     this.displayReferrals();
+    this.getPayment();
   }
 
   watchReferralState() {
@@ -59,6 +63,10 @@ export class DashboardComponent implements OnInit {
 
   displayReferrals() {
     this._store.dispatch(new GetReferrals(this.tableDataPage));
+  }
+
+  getPayment() {
+    this._store.dispatch(new GetPayment());
   }
 
   onPageChange($event: any) {
