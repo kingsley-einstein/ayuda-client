@@ -14,7 +14,7 @@ import { GetPayment } from "../../actions/payment.action";
 })
 export class DashboardComponent implements OnInit {
   tableData: { name: string; id: string; }[] = [];
-  displayColumns = ["name", "id"];
+  displayColumns = ["owner", "id", "amount"];
   tableDataPage = 0;
 
   // radarChartLabels = ["Q1", "Q2", "Q3"];
@@ -30,35 +30,36 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     console.log("[Dashboard]");
-    this.watchReferralState();
-    this.countReferrals();
     this.displayReferrals();
+    this.countReferrals();
+    // this.watchReferralState();
     this.getPayment();
   }
 
-  watchReferralState() {
-    this.referralState.subscribe((state) => {
-      // console.log(state);
-      if (state.referrals.length > 0) {
-        this.tableData = [];
-        state.referrals.forEach((referral) => {
-          this._authService.getUserById(referral.owner).subscribe((res) => {
-            const auth = res.response;
-            this.tableData.concat({
-              name: auth.firstName + " " + auth.lastName,
-              id: referral.id
-            });
-          });
-        });
-      }
-    });
-  }
+  // watchReferralState() {
+  //   this.referralState.subscribe((state) => {
+  //     // localStorage.setItem("_id", state.referral.id);
+  //     // console.log(state);
+  //     if (state.referrals.length > 0) {
+  //       this.tableData = [];
+  //       state.referrals.forEach((referral) => {
+  //         this._authService.getUserById(referral.owner).subscribe((res) => {
+  //           const auth = res.response;
+  //           this.tableData.concat({
+  //             name: auth.firstName + " " + auth.lastName,
+  //             id: referral.id
+  //           });
+  //         });
+  //       });
+  //     }
+  //   });
+  // }
 
   countReferrals() {
     // this.referralCounts.subscribe((state) => {
     //   console.log(state);
     // });
-    this._store.dispatch(new CountReferrals(localStorage.getItem("_id")));
+    setTimeout(() => this._store.dispatch(new CountReferrals(localStorage.getItem("_id"))), 2000);
   }
 
   displayReferrals() {

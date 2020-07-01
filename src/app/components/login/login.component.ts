@@ -39,10 +39,11 @@ export class LoginComponent implements OnInit {
     this._authService.logUserIn(this.loginGroup.value).subscribe((res) => {
       const { token, id } = res.response;
       localStorage.setItem("token", token);
-      localStorage.setItem("_id", id);
+      // localStorage.setItem("_id", id);
     },
     (err) => {
       this.isLoading = false;
+      console.log(err);
       this._message.add({
         severity: "error",
         summary: "Could not login",

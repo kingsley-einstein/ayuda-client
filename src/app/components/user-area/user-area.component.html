@@ -21,7 +21,7 @@
     (click)="openBottomSheet()"
   >
     <i class="fa fa-user"></i>
-    <i class="fa fa-caret-up"></i>
+    <!-- <i class="fa fa-caret-up"></i> -->
   </button>
 </div>
 <div class="flex">
@@ -32,14 +32,20 @@
   <div class="separator"></div>
   <button mat-button class="round-btn" [matMenuTriggerFor]="menu">
     <i class="fa fa-user"></i>
-    <i class="fa fa-caret-down"></i>
+    <!-- <i class="fa fa-caret-down"></i> -->
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>
+    <button
+      *ngIf="referralState | async as referral"
+      mat-menu-item
+      (click)="copyReferralLink(referral.referral.id)">
       <i class="fa fa-copy"></i>
       <span>Copy Referral Link</span>
     </button>
-    <button mat-menu-item>
+    <button
+      *ngIf="referralState | async as referral"
+      mat-menu-item
+      (click)="copyReferralCode(referral.referral.id)">
       <i class="fa fa-copy"></i>
       <span>Copy Referral Code</span>
     </button>

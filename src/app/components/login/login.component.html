@@ -1,12 +1,12 @@
 <p-toast position="top-left"></p-toast>
-<mat-card>
+<mat-card class="marginized">
   <mat-card-header>
     <mat-card-title>
       <h5>Login</h5>
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <form [formGroup]="loginGroup">
+    <form [formGroup]="loginGroup" (submit)="submit($event)">
       <mat-form-field>
         <i class="fa fa-at" matPrefix></i>
         <input type="email" placeholder="Email" matInput formControlName="email" />

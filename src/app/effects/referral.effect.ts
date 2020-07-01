@@ -24,7 +24,10 @@ export class ReferralEffects {
   getReferral$ = this._actions.pipe(
     ofType<GetReferral>(ReferralActions.GetReferral),
     switchMap(() => this._service.getOwned()),
-    switchMap((http) => of(new GetReferralSuccess(http.response))),
+    switchMap((http) => {
+      localStorage.setItem("_id", http.response.id);
+      return of(new GetReferralSuccess(http.response));
+    }),
     catchError(err => of(new GetReferralError(err.error.response)))
   );
 
@@ -48,7 +51,10 @@ export class ReferralEffects {
   countReferrals$ = this._actions.pipe(
     ofType<CountReferrals>(ReferralActions.CountReferrals),
     switchMap((action) => this._service.countAllReferred(action.id)),
-    switchMap((http) => of(new CountReferralsSuccess(http.response))),
+    switchMap((http) => {
+      setTimeout(() => {}, 2000);
+      return of(new CountReferralsSuccess(http.response));
+    }),
     catchError((err) => of(new CountReferralsError(err.error.response || err.statusText)))
   );
 }

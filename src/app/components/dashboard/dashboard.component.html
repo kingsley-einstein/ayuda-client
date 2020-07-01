@@ -1,15 +1,15 @@
 <mat-card class="main-card">
   <div class="card-flex">
     <mat-card class="fonted mat-elevation-z7">
-      <mat-card-header>
-        <mat-progress-bar mode="determinate" value="90"></mat-progress-bar>
+      <mat-card-header *ngIf="referralState | async as referral">
+        <mat-progress-bar *ngIf="!referral.error" mode="determinate" [value]="(referral.referralCount / 10) * 100"></mat-progress-bar>
       </mat-card-header>
       <div class="inner-card-flex">
         <div><i class="fa fa-users big"></i></div>
         <div class="separator"></div>
         <div class="inner-card-column-flex">
           <div *ngIf="referralState | async as referral">
-            <h5>{{ referral.referralCount || referral.error }}</h5>
+            <h5>{{ referral.referralCount.toString() || referral.error }}</h5>
           </div>
           <div>Referrals</div>
         </div>
@@ -31,15 +31,15 @@
       </div>
     </mat-card>
     <mat-card class="fonted mat-elevation-z7">
-      <mat-card-header>
-        <mat-progress-bar mode="determinate" value="55"></mat-progress-bar>
+      <mat-card-header *ngIf="paymentState | async as payment">
+        <mat-progress-bar *ngIf="!payment.error" mode="determinate" value="55"></mat-progress-bar>
       </mat-card-header>
       <div class="inner-card-flex">
         <div><i class="fa fa-dollar-sign big"></i></div>
         <div class="separator"></div>
         <div class="inner-card-column-flex">
           <div *ngIf="paymentState | async as payment">
-            <h5>{{ payment.payment.amount || payment.error }}</h5>
+            <h5>{{ payment.payment ? payment.payment.amount.toString() : payment.error }}</h5>
           </div>
           <div>Amount Type</div>
         </div>
@@ -91,17 +91,26 @@
       <mat-card-header>
         <h5>My Referrals</h5>
       </mat-card-header>
-      <table mat-table [dataSource]="tableData" class="mat-elevation-z8">
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef>Name</th>
+      <table
+        *ngIf="referralState | async as referral"
+        mat-table [dataSource]="referral.referrals"
+        class="mat-elevation-z8">
+        <ng-container matColumnDef="owner">
+          <th mat-header-cell *matHeaderCellDef>User ID</th>
           <td mat-cell *matCellDef="let referral">
-            {{ referral.name }}
+            {{ referral.owner }}
           </td>
         </ng-container>
         <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef>Referral Code</th>
           <td mat-cell *matCellDef="let referral">
             {{ referral.id }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="amount">
+          <th mat-header-cell *matHeaderCellDef>Amount Type</th>
+          <td mat-cell *matCellDef="let referral">
+            {{ referral.amountType }}
           </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>

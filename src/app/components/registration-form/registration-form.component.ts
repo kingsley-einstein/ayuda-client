@@ -80,6 +80,7 @@ export class RegistrationFormComponent implements OnInit {
     this.progressText = "Generating authentication details";
     this._authService.registerUser(authRequestBody).subscribe((res) => {
       localStorage.setItem("token", res.response.token);
+      // localStorage.setItem("_id", res.response.id);
       this.progressText = "Successfully generated authentication details. Now generating referral code";
       setTimeout(() => {
         this._referralService.create(referralRequestBody).subscribe((res2) => {
@@ -110,7 +111,7 @@ export class RegistrationFormComponent implements OnInit {
     () => {
       this.result.emit("complete");
       this.message.emit("Successfully registered user.");
-      this.progressText = "";
+      // this.progressText = "";
     });
   }
 }

@@ -37,3 +37,7 @@ mat-card {
     max-width: 350px;
   }
 }
+
+.marginized {
+  margin: 4em auto;
+}

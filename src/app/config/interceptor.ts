@@ -6,18 +6,19 @@ import { tap } from "rxjs/operators";
 @Injectable()
 export class Interceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const Authorization = localStorage.getItem("token") ? `Bearer ${localStorage.getItem("token")}` : null;
+    const Authorization = localStorage.getItem("token") ? `Bearer ${localStorage.getItem("token")}` : "";
     const req = request.clone({
       setHeaders: {
         Authorization
       }
     });
     return next.handle(req).pipe(
-      tap((e) => {
-        console.log(e.type);
+      tap((e: any) => {
+        console.log(e.type, e.body, req.url);
       },
       err => {
         if (err instanceof HttpErrorResponse) {
+          console.log(err.error.response || err.error || err.message, req.headers.keys());
           if (err.status === 401) {
             console.log(err.error.response);
           }
