@@ -1,3 +1,9 @@
-<p>
-  Terms and condition go here
-</p>
+<div>
+  <h5>{{ termsAndCondition.heading }}</h5>
+  <mat-list>
+    <mat-list-item *ngFor="let term of termsAndCondition.terms">
+      <i class="fa fa-chevron-down" matListIcon></i>
+      <span>{{ term }}</span>
+    </mat-list-item>
+  </mat-list>
+</div>
