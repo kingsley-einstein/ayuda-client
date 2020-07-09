@@ -10,6 +10,13 @@
   width: 100%;
 }
 
+.flex-within-step {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
 @media screen and (orientation: portrait) {
   .container {
     display: block;
@@ -18,5 +25,9 @@
 
   .container mat-stepper {
     width: 100%;
+  }
+
+  .flex-within-step {
+    flex-flow: column wrap;
   }
 }

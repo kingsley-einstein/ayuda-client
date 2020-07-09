@@ -1,5 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+import { MatStepper } from "@angular/material/stepper";
 import { MessageService } from "primeng/api";
 
 @Component({
@@ -12,6 +13,13 @@ export class RegistrationComponent implements OnInit {
   referralCode = null;
 
   type = "";
+
+  termsCompleted$ = false;
+
+  registrationCompleted$ = false;
+
+  @ViewChild("stepper")
+  stepper: MatStepper;
 
   constructor(_route: ActivatedRoute, private _message: MessageService) {
     _route.params.subscribe((params) => {
@@ -26,6 +34,10 @@ export class RegistrationComponent implements OnInit {
 
   result($event: any) {
     this.type = $event;
+    if ($event === "registration_finished") {
+      this.registrationCompleted$ = true;
+      setTimeout(() => this.stepper.next(), 500);
+    }
   }
 
   message($event: any) {
@@ -34,5 +46,10 @@ export class RegistrationComponent implements OnInit {
       summary: this.type === "complete" ? "Success" : "Error",
       detail: $event
     });
+  }
+
+  completeTerms() {
+    this.termsCompleted$ = true;
+    setTimeout(() => this.stepper.next(), 500);
   }
 }

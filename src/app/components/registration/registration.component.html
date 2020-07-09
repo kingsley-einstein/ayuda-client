@@ -1,28 +1,39 @@
 <p-toast position="top-left"></p-toast>
 <div class="container">
-  <mat-vertical-stepper>
+  <mat-vertical-stepper #stepper linear>
     <ng-template matStepperIcon="edit">
       <i class="fa fa-pen"></i>
     </ng-template>
     <ng-template matStepperIcon="done">
       <i class="fa fa-check"></i>
     </ng-template>
-    <mat-step label="Terms and conditions">
-      <app-terms></app-terms>
+    <mat-step [completed]="termsCompleted$" [editable]="false" label="Terms and conditions">
+      <div class="flex-within-step">
+        <app-terms></app-terms>
+      </div>
+      <button mat-raised-button color="warn" (click)="completeTerms()">Proceed</button>
     </mat-step>
-    <mat-step label="Registration">
+    <mat-step [completed]="registrationCompleted$" label="Registration">
       <!-- <mat-step-header label="Sign Up">
         <i class="fa fa-user"></i>
       </mat-step-header> -->
-      <app-registration-form
+      <div class="flex-within-step">
+        <app-registration-form
         [referrer]="referralCode"
         (result)="result($event)"
         (message)="message($event)"
-      >
-      </app-registration-form>
+        >
+        </app-registration-form>
+      </div>
     </mat-step>
     <mat-step label="Payment">
-      <app-payment></app-payment>
+      <div class="flex-within-step">
+        <app-payment
+        (result)="result($event)"
+        (message)="message($event)"
+        >
+        </app-payment>
+      </div>
     </mat-step>
   </mat-vertical-stepper>
 </div>

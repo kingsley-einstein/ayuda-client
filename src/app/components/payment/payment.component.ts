@@ -35,9 +35,14 @@ export class PaymentComponent implements OnInit {
 
   submit($event: any) {
     $event.preventDefault();
+    const { name, email } = this.paymentFormGroup.value;
+    const modifiedBody = {
+      name, email,
+      callback_url: window.location.host + "/verify/payment"
+    };
     this._service.createPayment().subscribe((res1) => {
       console.log("__", res1.response);
-      this._service.initializePayment(this.paymentFormGroup.value).subscribe((res2) => {
+      this._service.initializePayment(modifiedBody).subscribe((res2) => {
         window.open(res2.response.payment.authentication_url, "__blank");
       },
       (err) => {
