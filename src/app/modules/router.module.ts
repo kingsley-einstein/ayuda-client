@@ -8,19 +8,21 @@ import {
   DashboardComponent,
   UserAreaComponent,
   LoginComponent,
-  VerifyPaymentComponent
+  VerifyPaymentComponent,
+  LoginGenerateReferralComponent
 } from "../components";
 import { AuthGuard, PaymentGuard } from "../config";
 
 const routes: Routes = [
   { path: "", component: MainComponent, children: [
-    { path: "/verify/payment", component: VerifyPaymentComponent },
+    { path: "verify/payment", component: VerifyPaymentComponent },
     { path: "", component: LandingComponent, children: [
       { path: "", component: HomeComponent },
       { path: "registration", component: RegistrationComponent },
       { path: "registration/:referralCode", component: RegistrationComponent },
       { path: "home", redirectTo: "", pathMatch: "full" },
-      { path: "login", component: LoginComponent }
+      { path: "login", component: LoginComponent },
+      { path: "login/generate_referral", component: LoginGenerateReferralComponent }
     ] },
     { path: "landing", redirectTo: "", pathMatch: "full" },
     { path: "user-area", component: UserAreaComponent, children: [
