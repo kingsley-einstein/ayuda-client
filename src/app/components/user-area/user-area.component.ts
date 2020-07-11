@@ -57,6 +57,11 @@ export class UserAreaComponent implements OnInit {
   copyReferralCode($code: any) {
     navigator.clipboard.writeText($code).then(() => {
       console.log("Copied Referral Code");
+      this._message.add({
+        severity: "success",
+        summary: "Success",
+        detail: "Successfully copied referral code."
+      });
     });
   }
 
@@ -64,6 +69,11 @@ export class UserAreaComponent implements OnInit {
     const link$ = window.location.host + "/registration/" + $code;
     navigator.clipboard.writeText(link$).then(() => {
       console.log("Copied Referral Link");
+      this._message.add({
+        severity: "success",
+        summary: "Success",
+        detail: "Successfully copied referral code."
+      });
     });
   }
 

@@ -13,7 +13,7 @@
       </div>
       <button mat-raised-button color="warn" (click)="completeTerms()">Proceed</button>
     </mat-step>
-    <mat-step [completed]="registrationCompleted$" label="Registration">
+    <mat-step [completed]="registrationCompleted$" [editable]="false" label="Registration">
       <!-- <mat-step-header label="Sign Up">
         <i class="fa fa-user"></i>
       </mat-step-header> -->
