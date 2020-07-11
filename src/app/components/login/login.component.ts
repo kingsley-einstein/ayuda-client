@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     this.isLoading = true;
     $event.preventDefault();
     this._authService.logUserIn(this.loginGroup.value).subscribe((res) => {
-      const { token, id } = res.response;
+      const { token } = res.response;
       localStorage.setItem("token", token);
       // localStorage.setItem("_id", id);
     },
