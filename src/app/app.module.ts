@@ -19,7 +19,8 @@ import {
   UserAreaComponent,
   MobileBottomSheetComponent,
   PayoutFormComponent,
-  LoginComponent
+  LoginComponent,
+  VerifyPaymentComponent
 } from "./components";
 
 import { Interceptor, AuthGuard, PaymentGuard, PaymentGuardToolClass } from "./config";
@@ -58,7 +59,8 @@ import { environment } from "../environments/environment";
     UserAreaComponent,
     MobileBottomSheetComponent,
     PayoutFormComponent,
-    LoginComponent
+    LoginComponent,
+    VerifyPaymentComponent
   ],
   imports: [
     BrowserModule,

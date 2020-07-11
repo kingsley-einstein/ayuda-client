@@ -7,12 +7,14 @@ import {
   RegistrationComponent,
   DashboardComponent,
   UserAreaComponent,
-  LoginComponent
+  LoginComponent,
+  VerifyPaymentComponent
 } from "../components";
 import { AuthGuard, PaymentGuard } from "../config";
 
 const routes: Routes = [
   { path: "", component: MainComponent, children: [
+    { path: "/verify/payment", component: VerifyPaymentComponent },
     { path: "", component: LandingComponent, children: [
       { path: "", component: HomeComponent },
       { path: "registration", component: RegistrationComponent },

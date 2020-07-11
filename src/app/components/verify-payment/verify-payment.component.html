@@ -1,0 +1,7 @@
+<div class="flex fixed">
+  <div class="inner-flex">
+    <mat-spinner *ngIf="isLoading" diameter="30"></mat-spinner>
+    <i *ngIf="!isLoading" class="fa" [ngClass]="{ 'fa-check': !withErrors, 'fa-error': withErrors }"></i>
+    <span>{{ message }}</span>
+  </div>
+</div>

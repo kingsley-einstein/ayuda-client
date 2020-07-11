@@ -1,0 +1,20 @@
+.fixed {
+  background-color: ghostwhite;
+  position: fixed;
+  z-index: 2;
+}
+
+.flex {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner-flex {
+  display: flex;
+  flex-flow: column wrap;
+  margin: 5em auto;
+  justify-content: center;
+  align-items: center;
+}
