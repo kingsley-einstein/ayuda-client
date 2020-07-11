@@ -25,4 +25,8 @@ export class LoginGenerateReferralComponent implements OnInit {
   ngOnInit() {
     console.log("[Login To Generate Referral]");
   }
+
+  submit($event: any) {
+    $event.preventDefault();
+  }
 }
