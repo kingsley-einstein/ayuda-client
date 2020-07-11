@@ -37,4 +37,12 @@
       </mat-card>
     </div>
   </mat-step>
+  <mat-step>
+    <div class="form-flex">
+      <app-payment
+        (message)="message($event)"
+        (result)="result($event)">
+      </app-payment>
+    </div>
+  </mat-step>
 </mat-vertical-stepper>

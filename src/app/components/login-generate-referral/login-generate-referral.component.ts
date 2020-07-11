@@ -1,5 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { FormBuilder, FormGroup, FormControl, Validators } from "@angular/forms";
+import { MatStepper } from "@angular/material/stepper";
+import { MessageService } from "primeng/api";
 
 @Component({
   selector: "app-login-generate-referral",
@@ -19,8 +21,13 @@ export class LoginGenerateReferralComponent implements OnInit {
   ];
 
   selectedAmountType = 500;
+
+  messageType = "";
+
+  @ViewChild("stepper")
+  stepper: MatStepper;
   
-  constructor() {}
+  constructor(private _message: MessageService) {}
   
   ngOnInit() {
     console.log("[Login To Generate Referral]");
@@ -28,5 +35,20 @@ export class LoginGenerateReferralComponent implements OnInit {
 
   submit($event: any) {
     $event.preventDefault();
+  }
+
+  result($event: any) {
+    this.messageType = $event;
+    // if ($event === "login_referral_complete") {
+    //   setTimeout(() => this.stepper.next(), 500);
+    // }
+  }
+
+  message($event: any) {
+    this._message.add({
+      severity: this.messageType === "complete" ? "success" : "error",
+      detail: $event,
+      summary: this.messageType === "complete" ? "Success": "Error"
+    });
   }
 }
