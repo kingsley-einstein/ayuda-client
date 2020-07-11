@@ -1,9 +1,9 @@
 form {
-  text-align: center;
+ text-align: center;
 }
 
 mat-spinner {
-  text-align: center;
+ text-align: center;
 }
 
 .spinner-flex {
@@ -13,6 +13,13 @@ mat-spinner {
   align-items: center;
   text-align: center;
   margin-top: 12px;
+}
+
+.form-flex {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 mat-form-field {
