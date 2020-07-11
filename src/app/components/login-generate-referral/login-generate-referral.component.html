@@ -21,6 +21,17 @@
               <i class="fa fa-key" matPrefix></i>
               <input matInput placeholder="Password" />
             </mat-form-field>
+            <mat-form-field>
+              <mat-select 
+                [value]="selectedAmountType" 
+                [(ngModel)]="selectedAmountType"
+                [ngModelOptions]="{ 'standalone': true }">
+                <mat-option *ngFor="let amount of amountType" [value]="amount.value">
+                  {{ amount.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <button mat-raised-button color="accent" type="submit">Login</button>
           </form>
         </mat-card-content>
       </mat-card>
