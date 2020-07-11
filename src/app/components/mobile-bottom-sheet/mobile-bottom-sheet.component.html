@@ -1,9 +1,15 @@
 <mat-nav-list>
-  <a mat-list-item>
+  <a 
+    *ngIf="referralState | async as referral" 
+    mat-list-item
+    (click)="copyReferralLink(referral.referral.id)">
     <i class="fa fa-copy"></i>
     <span>Copy Referral Link</span>
   </a>
-  <a mat-list-item>
+  <a 
+    *ngIf="referralState | async as referral"
+    mat-list-item
+    (click)="copyReferralCode(referral.referral.id)">
     <i class="fa fa-copy"></i>
     <span>Copy Referral Code</span>
   </a>
