@@ -62,18 +62,13 @@
       <span>Sign Out</span>
     </button>
     <mat-menu #menu2="matMenu">
-      <button mat-menu-item>
+      <a 
+        *ngFor="let link of telegramLinks" 
+        mat-menu-item
+        [href]="link.url">
         <i class="fab fa-telegram"></i>
-        <span>Link 1</span>
-      </button>
-      <button mat-menu-item>
-        <i class="fab fa-telegram"></i>
-        <span>Link 2</span>
-      </button>
-      <button mat-menu-item>
-        <i class="fab fa-telegram"></i>
-        <span>Link 3</span>
-      </button>
+        <span>{{ link.name }}</span>
+      </a>
     </mat-menu>
   </mat-menu>
 </div>

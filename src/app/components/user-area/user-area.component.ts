@@ -7,7 +7,8 @@ import { PayoutFormComponent } from "../payout-form/payout-form.component";
 import { Store, select } from "@ngrx/store";
 import { AppState } from "../../states/app.state";
 import { selectReferral } from "../../selectors";
-import { GetReferral } from "src/app/actions/referral.action"
+import { GetReferral } from "../../actions/referral.action";
+import TelegramLinks from "../../../assets/_important_/telegram";
 
 @Component({
   selector: "app-user-area",
@@ -15,6 +16,8 @@ import { GetReferral } from "src/app/actions/referral.action"
   styleUrls: ["./user-area.component.css"]
 })
 export class UserAreaComponent implements OnInit {
+
+  telegramLinks = TelegramLinks;
 
   sidebarVisible = false;
   // payoutDialogVisible = false;

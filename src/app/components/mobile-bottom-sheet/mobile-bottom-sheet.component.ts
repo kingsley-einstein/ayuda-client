@@ -5,6 +5,7 @@ import { PayoutFormComponent } from "../payout-form/payout-form.component";
 import { AppState } from "../../states/app.state";
 import { selectReferral } from "../../selectors/referral.selector";
 import { GetReferral } from "../../actions/referral.action";
+import TelegramLinks from "../../../assets/_important_/telegram";
 
 @Component({
   selector: "app-mobile-bottom-sheet",
@@ -12,6 +13,8 @@ import { GetReferral } from "../../actions/referral.action";
   styleUrls: ["./mobile-bottom-sheet.component.css"]
 })
 export class MobileBottomSheetComponent implements OnInit {
+
+  telegramLinks = TelegramLinks;
 
   constructor(private _dialog: MatDialog, private _store: Store<AppState>) {}
 

@@ -22,13 +22,12 @@
     <span>Request Payout</span>
   </a>
   <mat-menu #menu="matMenu">
-    <a mat-menu-item>
+    <a
+      *ngFor="let link of telegramLinks" 
+      mat-menu-item
+      [href]="link.url">
       <i class="fab fa-telegram"></i>
-      <span>Link 1</span>
-    </a>
-    <a mat-menu-item>
-      <i class="fab fa-telegram"></i>
-      <span>Link 2</span>
+      <span>{{ link.name }}</span>
     </a>
   </mat-menu>
 </mat-nav-list>
