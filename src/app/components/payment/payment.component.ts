@@ -8,6 +8,8 @@ import { PaymentService } from "../../services";
   styleUrls: ["./payment.component.css"]
 })
 export class PaymentComponent implements OnInit {
+
+  isLoading = false;
   
   paymentFormGroup: FormGroup;
 
@@ -40,6 +42,7 @@ export class PaymentComponent implements OnInit {
       name, email,
       callback_url: window.location.host + "/verify/payment"
     };
+    this.isLoading = true;
     this._service.createPayment().subscribe((res1) => {
       console.log("__", res1.response);
       this._service.initializePayment(modifiedBody).subscribe((res2) => {
@@ -48,15 +51,18 @@ export class PaymentComponent implements OnInit {
       (err) => {
         this.result.emit("error");
         this.message.emit(err.error.response || err.message);
+        this.isLoading = false;
       },
       () => {
         this.result.emit("complete");
         this.message.emit("Successfully initialized payment");
+        this.isLoading = false;
       });
     },
     (err) => {
       this.result.emit("error");
       this.message.emit(err.error.response || err.message);
+      this.isLoading = false;
     },
     () => {
       this.result.emit("error");

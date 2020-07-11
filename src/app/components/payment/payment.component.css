@@ -19,6 +19,15 @@ mat-card {
   max-width: inherit;
 }
 
+.spinner-flex {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 12px;
+}
+
 @media screen and (orientation: landscape) {
   mat-card {
     max-width: 350px;

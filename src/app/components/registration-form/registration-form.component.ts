@@ -111,6 +111,8 @@ export class RegistrationFormComponent implements OnInit {
     () => {
       this.result.emit("complete");
       this.message.emit("Successfully registered user.");
+      this.result.emit("registration_completed");
+      this.regGroup.reset();
       // this.progressText = "";
     });
   }

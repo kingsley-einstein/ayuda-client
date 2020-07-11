@@ -15,6 +15,9 @@
         <input type="email" placeholder="Email" matInput formControlName="email" />
       </mat-form-field>
       <button mat-raised-button type="submit" color="accent">Proceed</button>
+      <div class="spinner-flex" *ngIf="isLoading">
+        <mat-spinner diameter="30"></mat-spinner>
+      </div>
     </form>
   </mat-card-content>
 </mat-card>
