@@ -2,6 +2,8 @@
   <div class="ui-toolbar-group-right hide-on-mobile">
     <a mat-button routerLink="/home">Home</a>
     <a mat-button routerLink="/login">Login</a>
+    <a mat-button>Login To Generate Referral Code</a>
+    <a mat-button>Login To Make Payment</a>
     <a mat-raised-button routerLink="/registration" color="primary">Sign Up</a>
   </div>
   <div class="ui-toolbar-group-left hide-on-widescreen">
@@ -14,8 +16,16 @@
         <span>Home</span>
       </a>
       <a mat-menu-item routerLink="/login">
-        <i class='fa fa-sign-in'></i>
+        <i class="fa fa-sign-in-alt"></i>
         <span>Login</span>
+      </a>
+      <a mat-menu-item>
+        <i class="fa fa-sign-in-alt"></i>
+        <span>Login To Generate Referral Code</span>
+      </a>
+      <a mat-menu-item>
+        <i class="fa fa-sign-in-alt"></i>
+        <span>Login To Make Payment</span>
       </a>
       <a mat-menu-item routerLink="/registration">
         <i class="fa fa-user-plus"></i>

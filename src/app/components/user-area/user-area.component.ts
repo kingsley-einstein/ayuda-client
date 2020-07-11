@@ -72,7 +72,7 @@ export class UserAreaComponent implements OnInit {
       this._message.add({
         severity: "success",
         summary: "Success",
-        detail: "Successfully copied referral code."
+        detail: "Successfully copied referral link."
       });
     });
   }
