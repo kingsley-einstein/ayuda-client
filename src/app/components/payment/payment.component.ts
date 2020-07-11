@@ -57,6 +57,7 @@ export class PaymentComponent implements OnInit {
         this.result.emit("complete");
         this.message.emit("Successfully initialized payment");
         this.isLoading = false;
+        this.paymentFormGroup.reset();
       });
     },
     (err) => {
