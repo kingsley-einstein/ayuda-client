@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { MatBottomSheet } from "@angular/material/bottom-sheet";
 import { MatDialog } from "@angular/material/dialog";
+import { MessageService } from "primeng/api";
 import { MobileBottomSheetComponent } from "../mobile-bottom-sheet/mobile-bottom-sheet.component";
 import { PayoutFormComponent } from "../payout-form/payout-form.component";
 import { Store, select } from "@ngrx/store";
@@ -18,7 +19,7 @@ export class UserAreaComponent implements OnInit {
   sidebarVisible = false;
   // payoutDialogVisible = false;
 
-  constructor(private _sheet: MatBottomSheet, private _dialog: MatDialog, private _store: Store<AppState>) {}
+  constructor(private _sheet: MatBottomSheet, private _dialog: MatDialog, private _store: Store<AppState>, private _message: MessageService) {}
 
   referralState = this._store.pipe(select(selectReferral));
 
