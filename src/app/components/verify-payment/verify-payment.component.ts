@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { PaymentService } from "../../services";
 
 @Component({
@@ -12,7 +13,7 @@ export class VerifyPaymentComponent implements OnInit {
   message = "";
   withErrors = false;
 
-  constructor(private _service: PaymentService) {}
+  constructor(private _service: PaymentService, private _router: Router) {}
 
   ngOnInit() {
     console.log("[Verify Payment]");
@@ -33,6 +34,7 @@ export class VerifyPaymentComponent implements OnInit {
       this.withErrors = false;
       this.message = "Successfully verified payment.";
       this.isLoading = false;
+      setTimeout(() => this._router.navigateByUrl("/user-area"), 2000);
     });
   }
 }
