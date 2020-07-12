@@ -32,6 +32,10 @@
               </mat-select>
             </mat-form-field>
             <button mat-raised-button color="accent" type="submit">Login</button>
+            <div class="spinner-flex" *ngIf="isLoading">
+              <mat-spinner diameter="30"></mat-spinner>
+            </div>
+            <span>{{ progressText }}</span>
           </form>
         </mat-card-content>
       </mat-card>

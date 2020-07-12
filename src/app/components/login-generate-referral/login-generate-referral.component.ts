@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from "@angular/core";
 import { FormBuilder, FormGroup, FormControl, Validators } from "@angular/forms";
 import { MatStepper } from "@angular/material/stepper";
 import { MessageService } from "primeng/api";
+import { AuthService, ReferralService } from "../../services";
 
 @Component({
   selector: "app-login-generate-referral",
@@ -9,6 +10,8 @@ import { MessageService } from "primeng/api";
   styleUrls: ["./login-generate-referral.component.css"]
 })
 export class LoginGenerateReferralComponent implements OnInit {
+
+  loginGroup: FormGroup;
 
   amountType: { name: string, value: number }[] = [
     { name: "#500 - #4000", value: 500 },
@@ -24,10 +27,14 @@ export class LoginGenerateReferralComponent implements OnInit {
 
   messageType = "";
 
+  progressText = "";
+
+  isLoading = false;
+
   @ViewChild("stepper")
   stepper: MatStepper;
   
-  constructor(private _message: MessageService) {}
+  constructor(private _message: MessageService, private _auth: AuthService, private _referral: ReferralService) {}
   
   ngOnInit() {
     console.log("[Login To Generate Referral]");
@@ -35,6 +42,35 @@ export class LoginGenerateReferralComponent implements OnInit {
 
   submit($event: any) {
     $event.preventDefault();
+    this.isLoading = true;
+    const { email, password } = this.loginGroup.value;
+    const authRequestBody = { email, password };
+    const referralRequestBody = {
+      amountType: this.selectedAmountType
+    };
+    this.progressText = "Logging in."
+    this._auth.logUserIn(authRequestBody).subscribe((res1) => {
+      localStorage.setItem("token", res1.response.token);
+      this.progressText = "Successfully logged in. Generating referral Code."
+      this._referral.create(referralRequestBody).subscribe((res2) => {
+        console.log("____", res2.response);
+      },
+      (err) => {
+        this._message.add({
+          severity: "error",
+          summary: "Error",
+          detail: err.error.response || err.message
+        });
+      },
+      () => {
+        this._message.add({
+          severity: "success",
+          summary: "Success",
+          detail: "Successfully generated referral code."
+        });
+        setTimeout(() => this.stepper.next(), 500);
+      });
+    });
   }
 
   result($event: any) {
