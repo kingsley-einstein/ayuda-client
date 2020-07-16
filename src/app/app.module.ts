@@ -21,7 +21,8 @@ import {
   PayoutFormComponent,
   LoginComponent,
   VerifyPaymentComponent,
-  LoginGenerateReferralComponent
+  LoginGenerateReferralComponent,
+  LoginGeneratePaymentComponent
 } from "./components";
 
 import { Interceptor, AuthGuard, PaymentGuard, PaymentGuardToolClass } from "./config";

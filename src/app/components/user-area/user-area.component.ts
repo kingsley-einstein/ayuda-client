@@ -9,6 +9,8 @@ import { AppState } from "../../states/app.state";
 import { selectReferral } from "../../selectors";
 import { GetReferral } from "../../actions/referral.action";
 import TelegramLinks from "../../../assets/_important_/telegram";
+import { AuthService } from "../../services";
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-user-area",
@@ -22,7 +24,14 @@ export class UserAreaComponent implements OnInit {
   sidebarVisible = false;
   // payoutDialogVisible = false;
 
-  constructor(private _sheet: MatBottomSheet, private _dialog: MatDialog, private _store: Store<AppState>, private _message: MessageService) {}
+  constructor(
+   private _sheet: MatBottomSheet, 
+   private _dialog: MatDialog, 
+   private _store: Store<AppState>, 
+   private _message: MessageService,
+   private _auth: AuthService,
+   private _router: Router
+  ) {}
 
   referralState = this._store.pipe(select(selectReferral));
 
@@ -78,6 +87,19 @@ export class UserAreaComponent implements OnInit {
         detail: "Successfully copied referral link."
       });
     });
+  }
+
+  logout() {
+   this._auth.logUserOut().subscribe((res) => {
+    console.log(res);
+   },
+   (err) => {
+    console.log(err);
+   },
+   () => {
+    localStorage.clear();
+    this._router.navigateByUrl("/login");
+   });
   }
 
   getReferral() {

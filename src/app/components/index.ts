@@ -14,3 +14,4 @@ export * from "./payout-form/payout-form.component";
 export * from "./login/login.component";
 export * from "./verify-payment/verify-payment.component";
 export * from "./login-generate-referral/login-generate-referral.component";
+export * from "./login-generate-payment/login-generate-payment.component";

@@ -21,6 +21,10 @@
     <i class="fa fa-credit-card"></i>
     <span>Request Payout</span>
   </a>
+  <a mat-list-item (click)="logout()">
+   <i class="fa fa-sign-out-alt"></i>
+   <span>Logout</span>
+  </a>
   <mat-menu #menu="matMenu">
     <a
       *ngFor="let link of telegramLinks" 
