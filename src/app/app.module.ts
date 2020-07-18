@@ -63,7 +63,8 @@ import { environment } from "../environments/environment";
     PayoutFormComponent,
     LoginComponent,
     VerifyPaymentComponent,
-    LoginGenerateReferralComponent
+    LoginGenerateReferralComponent,
+    LoginGeneratePaymentComponent
   ],
   imports: [
     BrowserModule,

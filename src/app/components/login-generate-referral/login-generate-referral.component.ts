@@ -72,6 +72,7 @@ export class LoginGenerateReferralComponent implements OnInit {
         console.log("____", res2.response);
       },
       (err) => {
+       this.progressText = "";
         this._message.add({
           severity: "error",
           summary: "Error",
@@ -79,6 +80,7 @@ export class LoginGenerateReferralComponent implements OnInit {
         });
       },
       () => {
+       this.progressText = "";
         this._message.add({
           severity: "success",
           summary: "Success",
@@ -86,6 +88,21 @@ export class LoginGenerateReferralComponent implements OnInit {
         });
         setTimeout(() => this.stepper.next(), 500);
       });
+    },
+    (err) => {
+     this.progressText = "";
+     this._message.add({
+      severity: "error",
+      summary: "Error",
+      detail: err.error.response || err.message
+     });
+    },
+    () => {
+     this._message.add({
+      severity: "success",
+      summary: "Success",
+      detail: "Successfully signed in."
+     });
     });
   }
 

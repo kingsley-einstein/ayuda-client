@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { AuthService } from "../../services";
 
 @Component({
  selector: "app-login-generate-payment",
@@ -7,7 +8,14 @@ import { Component, OnInit } from "@angular/core";
 })
 export class LoginGeneratePaymentComponent implements OnInit {
  
- constructor() {}
+ constructor(private _auth: AuthService) {}
 
  ngOnInit() {}
+
+ submit($event: any) {
+  $event.preventDefault();
+  this._auth.logUserIn({}).subscribe((res) => {
+   console.log({ ...res });
+  });
+ }
 }
