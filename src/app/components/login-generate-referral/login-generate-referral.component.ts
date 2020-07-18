@@ -13,6 +13,12 @@ export class LoginGenerateReferralComponent implements OnInit {
 
   loginGroup: FormGroup;
 
+  email: FormControl = new FormControl("", [
+   Validators.required, Validators.email
+  ]);
+
+  password: FormControl = new FormControl("", Validators.required);
+
   amountType: { name: string, value: number }[] = [
     { name: "#500 - #4000", value: 500 },
     { name: "#1000 - #8000", value: 1000 },
@@ -34,7 +40,17 @@ export class LoginGenerateReferralComponent implements OnInit {
   @ViewChild("stepper")
   stepper: MatStepper;
   
-  constructor(private _message: MessageService, private _auth: AuthService, private _referral: ReferralService) {}
+  constructor(
+   private _message: MessageService, 
+   private _auth: AuthService, 
+   private _referral: ReferralService,
+   fb: FormBuilder
+  ) {
+   this.loginGroup = fb.group({
+    email: this.email,
+    password: this.password
+   });
+  }
   
   ngOnInit() {
     console.log("[Login To Generate Referral]");

@@ -15,7 +15,7 @@
         <i class="fa fa-key" matPrefix></i>
         <input type="password" placeholder="Password" matInput formControlName="password" />
       </mat-form-field>
-      <button mat-raised-button color="accent">Sign In</button>
+      <button [disabled]="loginGroup.invalid" mat-raised-button color="accent">Sign In</button>
       <div class="spinner-flex" *ngIf="isLoading">
         <mat-spinner diameter="30"></mat-spinner>
       </div>
