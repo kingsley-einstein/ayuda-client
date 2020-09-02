@@ -99,6 +99,7 @@ export class RegistrationFormComponent implements OnInit {
           this.message.emit("Successfully generated referral code.");
           this.progressText = "";
           this.regGroup.reset();
+          this.result.emit("registration_finished");
         });
       }, 2000);
     },
