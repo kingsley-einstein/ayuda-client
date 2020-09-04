@@ -22,7 +22,8 @@ import {
   LoginComponent,
   VerifyPaymentComponent,
   LoginGenerateReferralComponent,
-  LoginGeneratePaymentComponent
+  LoginGeneratePaymentComponent,
+  PaymentPageComponent
 } from "./components";
 
 import { Interceptor, AuthGuard, PaymentGuard, PaymentGuardToolClass } from "./config";
@@ -64,7 +65,8 @@ import { environment } from "../environments/environment";
     LoginComponent,
     VerifyPaymentComponent,
     LoginGenerateReferralComponent,
-    LoginGeneratePaymentComponent
+    LoginGeneratePaymentComponent,
+    PaymentPageComponent
   ],
   imports: [
     BrowserModule,

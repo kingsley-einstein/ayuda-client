@@ -10,12 +10,14 @@ import {
   LoginComponent,
   VerifyPaymentComponent,
   LoginGenerateReferralComponent,
-  LoginGeneratePaymentComponent
+  LoginGeneratePaymentComponent,
+  PaymentPageComponent
 } from "../components";
 import { AuthGuard, PaymentGuard } from "../config";
 
 const routes: Routes = [
   { path: "", component: MainComponent, children: [
+    { path: "payment", component: PaymentPageComponent },
     { path: "verify/payment", component: VerifyPaymentComponent },
     { path: "", component: LandingComponent, children: [
       { path: "", component: HomeComponent },
@@ -30,12 +32,10 @@ const routes: Routes = [
     { path: "user-area", component: UserAreaComponent, children: [
       { path: "dashboard", component: DashboardComponent },
       { path: "", redirectTo: "dashboard", pathMatch: "full" }
+    ], 
+    canActivate: [
+      AuthGuard, PaymentGuard
     ]
-    /**
-     * , canActivate: [
-     * AuthGuard, PaymentGuard
-     * ]
-     */
   }
   ] },
   { path: "main", redirectTo: "", pathMatch: "full" }
