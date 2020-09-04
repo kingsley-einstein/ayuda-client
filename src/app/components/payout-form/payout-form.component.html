@@ -8,14 +8,14 @@
   </button>
 </div>
 <mat-dialog-content>
-  <form>
+  <form [formGroup]="fg" (submit)="submit($event)">
     <mat-form-field>
       <i class="fa fa-user" matPrefix></i>
-      <input type="text" matInput placeholder="Name" />
+      <input type="text" matInput placeholder="Name" formControlName="name" />
     </mat-form-field>
     <mat-form-field>
       <i class="fa fa-credit-card" matPrefix></i>
-      <input type="text" matInput placeholder="Account Number" />
+      <input type="text" matInput placeholder="Account Number" formControlName="accountNumber" />
     </mat-form-field>
     <mat-form-field>
       <i class="fa fa-university" matPrefix></i>

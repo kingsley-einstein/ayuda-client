@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { FormControl, FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { PaymentService } from "../../services";
 
 @Component({
   selector: "app-payout",
@@ -23,7 +25,37 @@ export class PayoutFormComponent implements OnInit {
     { name: "Skye Bank", value: "skye_bank" }
   ];
   selectedBank = "first_bank_of_nigeria";
+
+  fg: FormGroup;
+
+  name: FormControl = new FormControl("", Validators.required);
+  accountNumber: FormControl = new FormControl("", Validators.required);
+
+  isLoading = false;
+
+  constructor(fb: FormBuilder, private _service: PaymentService) {
+    this.fg = fb.group({
+      name: this.name,
+      accountNumber: this.accountNumber
+    });
+  }
+
   ngOnInit() {
     console.log("[Payout Form]");
+  }
+
+  submit($event: Event) {
+    $event.preventDefault();
+    this.isLoading = false;
+    const body = this.fg.value;
+    body.bankName = this.selectedBank;
+    this._service.createTransferRecipient(body).subscribe((res1) => {
+      console.log("____", res1);
+      this._service.initializetransfer({
+        recipientCode: res1.response.recipient.recipient_code
+      }).subscribe((res2) => {
+        console.log("_____", res2.response);
+      });
+    });
   }
 }
