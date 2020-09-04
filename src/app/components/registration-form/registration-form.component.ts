@@ -24,13 +24,13 @@ export class RegistrationFormComponent implements OnInit {
   message: EventEmitter<string> = new EventEmitter<string>(true);
 
   amountType: { name: string, value: number }[] = [
-    { name: "#500 - #4000", value: 500 },
-    { name: "#1000 - #8000", value: 1000 },
-    { name: "#2000 - #16000", value: 2000 },
-    { name: "#5000 - #40000", value: 5000 },
-    { name: "#10000 - #80000", value: 10000 },
-    { name: "#20000 - #160000", value: 20000 },
-    { name: "#100000 - #800000", value: 100000 }
+    { name: "5h for 4k", value: 500 },
+    { name: "1k for 8k", value: 1000 },
+    { name: "2k for 16k", value: 2000 },
+    { name: "5k for 40k", value: 5000 },
+    { name: "10k for 80k", value: 10000 },
+    { name: "20k for 160k", value: 20000 },
+    { name: "100k for 800k", value: 100000 }
   ];
 
   selectedAmountType = 500;

@@ -21,6 +21,7 @@ export class VerifyPaymentComponent implements OnInit {
   }
 
   verifyPayment() {
+    this.isLoading = true;
     this.message = "Verifying payment."
     this._service.verifyPayment().subscribe((res) => {
       console.log("___", res.response);

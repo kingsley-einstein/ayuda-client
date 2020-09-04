@@ -46,7 +46,8 @@ export class PaymentComponent implements OnInit {
     this._service.createPayment().subscribe((res1) => {
       console.log("__", res1.response);
       this._service.initializePayment(modifiedBody).subscribe((res2) => {
-        window.open(res2.response.payment.authentication_url, "__blank");
+        console.log("______", res2.response);
+        window.open(res2.response.payment.authorization_url, "__blank");
       },
       (err) => {
         this.result.emit("error");
@@ -66,7 +67,7 @@ export class PaymentComponent implements OnInit {
       this.isLoading = false;
     },
     () => {
-      this.result.emit("error");
+      this.result.emit("complete");
       this.message.emit("Successfully created payment object");
     });
   }

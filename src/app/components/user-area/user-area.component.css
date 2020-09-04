@@ -1,3 +1,7 @@
+* {
+  color: purple;
+}
+
 @media screen and (orientation: landscape) {
   .hide-on-widescreen {
     display: none;

@@ -11,7 +11,7 @@
 }
 
 .active {
-  background-color: greenyellow;
+  background-color: lavender;
 }
 
 a[mat-button] {
@@ -31,7 +31,8 @@ a[mat-button] i {
 
 p-sidebar a {
   text-align: left;
-  color: white;
+  color: purple;
+  font-weight: bold;
 }
 
 /* .purple {

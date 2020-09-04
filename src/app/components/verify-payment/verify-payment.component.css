@@ -2,6 +2,11 @@
   background-color: ghostwhite;
   position: fixed;
   z-index: 2;
+  text-align: center;
+  top: 40%;
+  left: 50%;
+  right: 50%;
+  bottom: 60%;
 }
 
 .flex {
@@ -9,6 +14,7 @@
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .inner-flex {
@@ -17,4 +23,5 @@
   margin: 5em auto;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }

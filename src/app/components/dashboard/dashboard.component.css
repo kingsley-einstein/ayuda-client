@@ -15,10 +15,11 @@
   min-height: 80px;
   margin-left: 1.5em;
   margin-right: 1.5em;
+  font-weight: bold;
 }
 
 .card-flex mat-card i {
-  color: skyblue;
+  color: purple;
 }
 
 i.big {
