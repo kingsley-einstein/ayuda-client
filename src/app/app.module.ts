@@ -42,6 +42,7 @@ import { MessageService } from "primeng/api";
 
 import { AuthEffects } from "./effects/auth.effect";
 import { ReferralEffects } from "./effects/referral.effect";
+import { PaymentEffects } from "./effects/payment.effect";
 
 import { appReducers } from "./reducers/app.reducer";
 import { environment } from "../environments/environment";
@@ -78,7 +79,7 @@ import { environment } from "../environments/environment";
     FormModule,
     ChartsModule,
     StoreModule.forRoot(appReducers),
-    EffectsModule.forRoot([AuthEffects, ReferralEffects]),
+    EffectsModule.forRoot([AuthEffects, ReferralEffects, PaymentEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   providers: [

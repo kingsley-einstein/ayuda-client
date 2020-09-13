@@ -32,7 +32,6 @@ export class DashboardComponent implements OnInit {
     console.log("[Dashboard]");
     this.displayReferrals();
     this.countReferrals();
-    // this.watchReferralState();
     this.getPayment();
   }
 
@@ -68,6 +67,7 @@ export class DashboardComponent implements OnInit {
 
   getPayment() {
     this._store.dispatch(new GetPayment());
+    // this.paymentState.subscribe((state) => console.log(state));
   }
 
   onPageChange($event: any) {
