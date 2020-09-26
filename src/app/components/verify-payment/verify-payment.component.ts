@@ -8,7 +8,7 @@ import { PaymentService } from "../../services";
   styleUrls: ["./verify-payment.component.css"]
 })
 export class VerifyPaymentComponent implements OnInit {
-  
+
   isLoading = false;
   message = "";
   withErrors = false;

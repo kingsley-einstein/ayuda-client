@@ -12,7 +12,10 @@ import { MessageService } from "primeng/api";
 export class LoginComponent implements OnInit {
   loginGroup: FormGroup;
 
-  email: FormControl = new FormControl("", Validators.required);
+  email: FormControl = new FormControl("", [
+    Validators.required,
+    Validators.email
+  ]);
   password: FormControl = new FormControl("", Validators.required);
 
   isLoading = false;

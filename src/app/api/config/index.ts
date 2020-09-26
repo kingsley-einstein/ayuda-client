@@ -25,6 +25,7 @@ export class Config {
   static GET_OWNED = "/owned";
   static GET_REFERRED_BY = "/referred";
   static COUNT_REFERRED_BY = "/referred/count";
+  static REFER_EXISTING = "/refer_existing";
 
   // Payment Service Routes
   static CREATE_PAYMENT = "/payment/create";

@@ -23,7 +23,8 @@ import {
   VerifyPaymentComponent,
   LoginGenerateReferralComponent,
   LoginGeneratePaymentComponent,
-  PaymentPageComponent
+  PaymentPageComponent,
+  LoginWithReferralComponent
 } from "./components";
 
 import { Interceptor, AuthGuard, PaymentGuard, PaymentGuardToolClass } from "./config";
@@ -47,6 +48,8 @@ import { PaymentEffects } from "./effects/payment.effect";
 import { appReducers } from "./reducers/app.reducer";
 import { environment } from "../environments/environment";
 
+import { AdsenseModule } from "ng2-adsense";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +70,8 @@ import { environment } from "../environments/environment";
     VerifyPaymentComponent,
     LoginGenerateReferralComponent,
     LoginGeneratePaymentComponent,
-    PaymentPageComponent
+    PaymentPageComponent,
+    LoginWithReferralComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +84,11 @@ import { environment } from "../environments/environment";
     ChartsModule,
     StoreModule.forRoot(appReducers),
     EffectsModule.forRoot([AuthEffects, ReferralEffects, PaymentEffects]),
-    !environment.production ? StoreDevtoolsModule.instrument() : []
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    AdsenseModule.forRoot({
+     adClient: "ca-p­ub-8730616366224473",
+     adSlot: "792254­8475"
+    })
   ],
   providers: [
     AuthService,

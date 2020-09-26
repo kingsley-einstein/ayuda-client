@@ -10,7 +10,7 @@ import { PaymentService } from "../../services";
 export class PaymentComponent implements OnInit {
 
   isLoading = false;
-  
+
   paymentFormGroup: FormGroup;
 
   name: FormControl = new FormControl("", Validators.required);
@@ -52,6 +52,7 @@ export class PaymentComponent implements OnInit {
       (err) => {
         this.result.emit("error");
         this.message.emit(err.error.response || err.message);
+        console.log(err.error);
         this.isLoading = false;
       },
       () => {

@@ -1,7 +1,7 @@
 .card-flex {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   margin: 50px auto;
   font-size: 15px;
@@ -137,5 +137,6 @@ mat-card.red {
 }
 
 .main-card {
+  flex: 1;
   text-align: center;
 }

@@ -19,8 +19,8 @@ export class MobileBottomSheetComponent implements OnInit {
   telegramLinks = TelegramLinks;
 
   constructor(
-   private _dialog: MatDialog, 
-   private _store: Store<AppState>, 
+   private _dialog: MatDialog,
+   private _store: Store<AppState>,
    private _router: Router,
    private _auth: AuthService
   ) {}
@@ -46,7 +46,8 @@ export class MobileBottomSheetComponent implements OnInit {
   }
 
   copyReferralCode($code: any) {
-    navigator.clipboard.writeText($code).then(() => {
+    const link$ = window.location.host + "/login/with_referral_code/" + $code;
+    navigator.clipboard.writeText(link$).then(() => {
       console.log("Copied referral code.");
     });
   }

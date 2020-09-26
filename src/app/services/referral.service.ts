@@ -21,6 +21,10 @@ export class ReferralService {
     return this.http.get<ResponseModel>(ROOT + Config.GET_REFERRED_BY + "/" + id + "/" + page);
   }
 
+  referExisting(code: string) {
+    return this.http.get<ResponseModel>(ROOT + Config.REFER_EXISTING + "/" + code);
+  }
+
   countAllReferred(id: string) {
     return this.http.get<ResponseModel>(ROOT + Config.COUNT_REFERRED_BY + "/" + id);
   }

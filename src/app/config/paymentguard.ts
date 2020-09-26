@@ -9,7 +9,7 @@ export class PaymentGuardToolClass {
 
   async paymentHasBeenMade() {
     const res = await this._service.findPayment().toPromise();
-    const isPaid: boolean = res.response.paid;
+    const isPaid: boolean = !!res.response ? res.response.paid : false;
     return isPaid;
   }
 }

@@ -25,9 +25,9 @@ export class UserAreaComponent implements OnInit {
   // payoutDialogVisible = false;
 
   constructor(
-   private _sheet: MatBottomSheet, 
-   private _dialog: MatDialog, 
-   private _store: Store<AppState>, 
+   private _sheet: MatBottomSheet,
+   private _dialog: MatDialog,
+   private _store: Store<AppState>,
    private _message: MessageService,
    private _auth: AuthService,
    private _router: Router
@@ -67,7 +67,8 @@ export class UserAreaComponent implements OnInit {
   }
 
   copyReferralCode($code: any) {
-    navigator.clipboard.writeText($code).then(() => {
+    const link$ = window.location.host + "/login/with_referral_code/" + $code;
+    navigator.clipboard.writeText(link$).then(() => {
       console.log("Copied Referral Code");
       this._message.add({
         severity: "success",

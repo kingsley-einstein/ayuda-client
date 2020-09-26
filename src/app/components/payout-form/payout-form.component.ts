@@ -53,7 +53,7 @@ export class PayoutFormComponent implements OnInit {
     this._service.createTransferRecipient(body).subscribe((res1) => {
       console.log("____", res1);
       this._service.initializetransfer({
-        recipientCode: res1.response.recipient.recipient_code,
+        recipientCode: res1.response.recipient.data.recipient_code,
         amountType: 500
       }).subscribe((res2) => {
         console.log("_____", res2.response);

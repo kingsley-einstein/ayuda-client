@@ -15,7 +15,7 @@
         </div>
       </div>
     </mat-card>
-    <mat-card class="fonted mat-elevation-z7">
+    <!-- <mat-card class="fonted mat-elevation-z7">
       <mat-card-header>
         <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
       </mat-card-header>
@@ -29,7 +29,7 @@
           <div>Days left for withdrawal</div>
         </div>
       </div>
-    </mat-card>
+    </mat-card> -->
     <mat-card class="fonted mat-elevation-z7">
       <mat-card-header *ngIf="paymentState | async as payment">
         <mat-progress-bar *ngIf="!payment.error" mode="determinate" value="55"></mat-progress-bar>
