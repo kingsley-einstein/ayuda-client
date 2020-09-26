@@ -17,3 +17,4 @@ export * from "./login-generate-referral/login-generate-referral.component";
 export * from "./login-generate-payment/login-generate-payment.component";
 export * from "./payment-page/payment-page.component";
 export * from "./login-with-referral-code/login-with-referral-code.component";
+export * from "./change-password/change-password.component";

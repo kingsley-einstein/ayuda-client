@@ -11,16 +11,16 @@
         <i class="fa fa-cogs"></i>
         <span>Dashboard</span>
       </a>
-      <a mat-button>
+      <!-- <a mat-button routerLink="change_password">
         <i class="fa fa-user-edit"></i>
         <span>Change Password</span>
-      </a>
-      <a mat-button>
+      </a> -->
+      <!-- <a mat-button>
         <i class="fa fa-user-tie"></i>
         <span>My Profile</span>
-      </a>
+      </a> -->
       <mat-divider></mat-divider>
-      <a mat-button>
+      <a mat-button (click)="logout()">
         <i class="fa fa-sign-out-alt"></i>
         <span>Sign Out</span>
       </a>
@@ -51,15 +51,19 @@
         <i class="fa fa-cogs"></i>
         <span>Dashboard</span>
       </a>
-      <a mat-button>
+      <!-- <a mat-button routerLink="change_password">
         <i class="fa fa-user-edit"></i>
         <span>Change Password</span>
-      </a>
-      <a mat-button>
+      </a> -->
+      <!-- <a mat-button>
         <i class="fa fa-user-tie"></i>
         <span>My Profile</span>
-      </a>
+      </a> -->
       <mat-divider></mat-divider>
+      <a mat-button (click)="logout()">
+        <i class="fa fa-sign-out-alt"></i>
+        <span>Sign Out</span>
+      </a>
     </div>
   </p-sidebar>
 </div>

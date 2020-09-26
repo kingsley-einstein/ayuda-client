@@ -24,7 +24,8 @@ import {
   LoginGenerateReferralComponent,
   LoginGeneratePaymentComponent,
   PaymentPageComponent,
-  LoginWithReferralComponent
+  LoginWithReferralComponent,
+  ChangePasswordComponent
 } from "./components";
 
 import { Interceptor, AuthGuard, PaymentGuard, PaymentGuardToolClass } from "./config";
@@ -71,7 +72,8 @@ import { AdsenseModule } from "ng2-adsense";
     LoginGenerateReferralComponent,
     LoginGeneratePaymentComponent,
     PaymentPageComponent,
-    LoginWithReferralComponent
+    LoginWithReferralComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

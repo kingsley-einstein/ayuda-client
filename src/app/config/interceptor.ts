@@ -29,6 +29,7 @@ export class Interceptor implements HttpInterceptor {
             });
             setTimeout(() => {
              this._router.navigateByUrl("/login");
+             localStorage.clear();
             }, 2000);
           }
         }

@@ -13,10 +13,10 @@
     <i class="fa fa-copy"></i>
     <span>Refer Existing User</span>
   </a>
-  <a mat-list-item [matMenuTriggerFor]="menu">
+  <!-- <a mat-list-item [matMenuTriggerFor]="menu">
     <i class="fab fa-telegram"></i>
     <span>Telegram Links</span>
-  </a>
+  </a> -->
   <a mat-list-item (click)="showPayoutDialog()">
     <i class="fa fa-credit-card"></i>
     <span>Request Payout</span>
@@ -25,7 +25,7 @@
    <i class="fa fa-sign-out-alt"></i>
    <span>Logout</span>
   </a>
-  <mat-menu #menu="matMenu">
+  <!-- <mat-menu #menu="matMenu">
     <a
       *ngFor="let link of telegramLinks"
       mat-menu-item
@@ -33,5 +33,5 @@
       <i class="fab fa-telegram"></i>
       <span>{{ link.name }}</span>
     </a>
-  </mat-menu>
+  </mat-menu> -->
 </mat-nav-list>

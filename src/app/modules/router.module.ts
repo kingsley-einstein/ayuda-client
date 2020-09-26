@@ -12,7 +12,8 @@ import {
   LoginGenerateReferralComponent,
   LoginGeneratePaymentComponent,
   PaymentPageComponent,
-  LoginWithReferralComponent
+  LoginWithReferralComponent,
+  ChangePasswordComponent
 } from "../components";
 import { AuthGuard, PaymentGuard } from "../config";
 
@@ -33,7 +34,8 @@ const routes: Routes = [
     { path: "landing", redirectTo: "", pathMatch: "full" },
     { path: "user-area", component: UserAreaComponent, children: [
       { path: "dashboard", component: DashboardComponent },
-      { path: "", redirectTo: "dashboard", pathMatch: "full" }
+      { path: "", redirectTo: "dashboard", pathMatch: "full" },
+      { path: "change_password", component: ChangePasswordComponent }
     ],
     canActivate: [
       AuthGuard, PaymentGuard
