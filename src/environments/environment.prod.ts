@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api: "https://ayuda-gateway.herokuapp.com"
+  api: "https://aidez-gateway.herokuapp.com"
 };
