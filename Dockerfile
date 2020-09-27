@@ -4,3 +4,4 @@ COPY *.json ./
 COPY src ./src
 RUN npm install
 COPY . .
+ENTRYPOINT ["npm", "run", "start:prod"]
