@@ -3,6 +3,7 @@ FROM node:${NODE_VERSION}
 COPY *.json ./
 COPY src ./src
 RUN npm install
-RUN dir
+RUN ls -al
 COPY . .
+RUN npm run build
 ENTRYPOINT ["npm", "run", "start:prod"]
