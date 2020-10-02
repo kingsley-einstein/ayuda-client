@@ -28,6 +28,18 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
+    <mat-form-field>
+      <mat-label>Select Next Plan</mat-label>
+      <i class="fa fa-money-bill" matPrefix></i>
+      <mat-select
+        [value]="selectedAmountType"
+        [(ngModel)]="selectedAmountType"
+        [ngModelOptions]="{'standalone': true}">
+        <mat-option *ngFor="let amount of amountType" [value]="amount.value">
+          {{ amount.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
     <button mat-raised-button color="accent">Request</button>
   </form>
 </mat-dialog-content>
