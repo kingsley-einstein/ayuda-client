@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { FormGroup, FormBuilder, FormControl, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 import { PaymentService } from "../../services";
 
 @Component({
@@ -24,7 +25,7 @@ export class PaymentComponent implements OnInit {
   @Output()
   message: EventEmitter<string> = new EventEmitter<string>(true);
 
-  constructor(fb: FormBuilder, private _service: PaymentService) {
+  constructor(fb: FormBuilder, private _service: PaymentService, private router: Router) {
     this.paymentFormGroup = fb.group({
       name: this.name,
       email: this.email
@@ -71,5 +72,9 @@ export class PaymentComponent implements OnInit {
       this.result.emit("complete");
       this.message.emit("Successfully created payment object");
     });
+  }
+
+  toVerifyPage() {
+    this.router.navigateByUrl("/verify/payment");
   }
 }

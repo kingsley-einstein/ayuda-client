@@ -15,6 +15,7 @@
         <input type="email" placeholder="Email" matInput formControlName="email" />
       </mat-form-field>
       <button mat-raised-button type="submit" color="accent">Proceed</button>
+      <button mat-raised-button color="secondary" (click)="toVerifyPage()">Verify Payment</button>
       <div class="spinner-flex" *ngIf="isLoading">
         <mat-spinner diameter="30"></mat-spinner>
       </div>
