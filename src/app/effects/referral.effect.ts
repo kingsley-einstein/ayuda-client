@@ -13,7 +13,7 @@ import {
   CountReferralsSuccess,
   CountReferralsError
 } from "../actions/referral.action";
-import { switchMap, catchError, map } from "rxjs/operators";
+import { switchMap, catchError } from "rxjs/operators";
 import { of } from "rxjs";
 
 @Injectable()
@@ -26,6 +26,7 @@ export class ReferralEffects {
     switchMap(() => this._service.getOwned()),
     switchMap((http) => {
       localStorage.setItem("_id", http.response.id);
+      localStorage.setItem("amountType", http.response.amountType.toString());
       return of(new GetReferralSuccess(http.response));
     }),
     catchError(err => of(new GetReferralError(err.error.response)))

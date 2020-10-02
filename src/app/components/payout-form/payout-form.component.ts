@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { PaymentService } from "../../services";
 
@@ -34,7 +35,7 @@ export class PayoutFormComponent implements OnInit {
 
   isLoading = false;
 
-  constructor(fb: FormBuilder, private _service: PaymentService, private toast: MatSnackBar) {
+  constructor(fb: FormBuilder, private _service: PaymentService, private toast: MatSnackBar, private router: Router) {
     this.fg = fb.group({
       name: this.name,
       accountNumber: this.accountNumber
@@ -54,7 +55,7 @@ export class PayoutFormComponent implements OnInit {
       console.log("____", res1);
       this._service.initializetransfer({
         recipientCode: res1.response.recipient.data.recipient_code,
-        amountType: 500
+        amountType: parseInt(localStorage.getItem("amountType"), 10)
       }).subscribe((res2) => {
         console.log("_____", res2.response);
       },
@@ -65,6 +66,8 @@ export class PayoutFormComponent implements OnInit {
       () => {
         this.isLoading = false;
         this.openToast("Transfer successfully initialized");
+        localStorage.clear();
+        this.router.navigateByUrl("/login");
       });
     },
     (err) => {
