@@ -17,6 +17,8 @@ export class DashboardComponent implements OnInit {
   displayColumns = ["owner", "id", "amount"];
   tableDataPage = 0;
 
+  referralLink = "";
+
   // radarChartLabels = ["Q1", "Q2", "Q3"];
   // radarChartData = [{
   //   data: [1, 2, 3, 4],
@@ -33,6 +35,7 @@ export class DashboardComponent implements OnInit {
     this.displayReferrals();
     this.countReferrals();
     this.getPayment();
+    this.setReferralLink();
   }
 
   // watchReferralState() {
@@ -73,5 +76,9 @@ export class DashboardComponent implements OnInit {
   onPageChange($event: any) {
     this.tableDataPage = $event.pageIndex;
     this.displayReferrals();
+  }
+
+  setReferralLink() {
+    setTimeout(() => this.referralLink = window.location.host + "/registration/" + localStorage.getItem("_id"), 2000);
   }
 }
